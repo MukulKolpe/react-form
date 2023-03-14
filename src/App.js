@@ -13,9 +13,9 @@ function App() {
       password: z.string().min(6).max(20),
       cpassword: z.string().min(6).max(20),
     })
-    .refine((data) => data.password === data.cpassword, {
-      message: "Passwords do not match",
-      path: ["cpassword"],
+    .refine((data) => data.email.includes("ves.ac.in"), {
+      message: "Only VESIT Email Allowed",
+      path: ["email"],
     });
   const {
     register,
